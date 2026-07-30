@@ -1,0 +1,398 @@
+/* =========================================
+   Thulaganyo Marumo — Portfolio Stylesheet
+   Sidebar resume layout
+   ========================================= */
+
+/* ---- Variables ---- */
+:root {
+  --navy: #0F2942;
+  --navy-deep: #081A2C;
+  --steel: #2C5F8A;
+  --signal: #1B9C85;
+  --paper: #F6F8FA;
+  --sidebar-bg: #EFF3F6;
+  --ink: #16232F;
+  --slate: #55677A;
+  --line: #DCE3E9;
+}
+
+/* Dark mode palette — applied when <body class="dark-mode"> */
+body.dark-mode {
+  --paper: #0B1520;
+  --sidebar-bg: #101E2C;
+  --ink: #E7EEF3;
+  --slate: #9FB3C4;
+  --line: #22384A;
+}
+
+body.dark-mode .main {
+  background: #0F1D2B;
+}
+
+/* ---- Reset ---- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; /* smooth scrolling for the in-page nav links */
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.6;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3 {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+a {
+  color: var(--steel);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--signal);
+}
+
+/* ---- Top nav ---- */
+.topnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 6vw;
+  background: var(--navy-deep);
+  color: #fff;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand {
+  font-weight: 600;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-link {
+  color: #B7C7D3;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #fff;
+}
+
+/* Highlighted while its section is in view — toggled by script.js */
+.nav-link.active {
+  color: var(--signal);
+  border-bottom-color: var(--signal);
+}
+
+.nav-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-print {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 8px 16px;
+  border-radius: 4px;
+  color: #fff;
+  background: none;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-print:hover {
+  border-color: var(--signal);
+  color: var(--signal);
+}
+
+/* ---- Header band ---- */
+.header-band {
+  background: var(--navy);
+  color: #fff;
+  padding: 60px 6vw 90px;
+}
+
+.eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #5CD9BC;
+  margin-bottom: 14px;
+}
+
+.header-band h1 {
+  font-size: 2.4rem;
+}
+
+.header-band .role {
+  margin-top: 10px;
+  color: #9FB3C4;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* ---- Layout: sidebar + main ---- */
+.cv-wrap {
+  max-width: 1100px;
+  margin: -60px auto 0;
+  padding: 0 6vw 80px;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+}
+
+@media (max-width: 860px) {
+  .cv-wrap {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Sidebar ---- */
+.sidebar {
+  background: var(--sidebar-bg);
+  border: 1px solid var(--line);
+  border-radius: 6px 0 0 6px;
+  padding: 40px 28px;
+  text-align: center;
+}
+
+@media (max-width: 860px) {
+  .sidebar {
+    border-radius: 6px 6px 0 0;
+  }
+}
+
+.avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: var(--navy-deep);
+  color: var(--signal);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.sidebar-name {
+  font-size: 1.1rem;
+}
+
+.sidebar-role {
+  font-size: 0.85rem;
+  color: var(--slate);
+  margin-bottom: 24px;
+}
+
+.side-block {
+  text-align: left;
+  margin-top: 28px;
+}
+
+.side-block h3 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--steel);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 8px;
+  margin-bottom: 14px;
+}
+
+.side-block p {
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+
+.side-block .label {
+  display: block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--slate);
+}
+
+.skill-list {
+  list-style: none;
+}
+
+.skill-list li {
+  font-size: 0.85rem;
+  padding: 8px 0 8px 4px;
+  border-bottom: 1px solid var(--line);
+  border-left: 2px solid transparent;
+  transition: border-color 0.2s ease, padding-left 0.2s ease;
+}
+
+.skill-list li:hover {
+  border-left-color: var(--signal);
+  padding-left: 10px;
+}
+
+.skill-list li:last-child {
+  border-bottom: none;
+}
+
+/* ---- Main content ---- */
+.main {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-left: none;
+  border-radius: 0 6px 6px 0;
+  padding: 44px;
+}
+
+@media (max-width: 860px) {
+  .main {
+    border-left: 1px solid var(--line);
+    border-radius: 0 0 6px 6px;
+  }
+}
+
+.main section {
+  margin-bottom: 44px;
+}
+
+.main section:last-child {
+  margin-bottom: 0;
+}
+
+.main h2 {
+  font-size: 1.3rem;
+  color: var(--navy);
+  margin-bottom: 18px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--signal);
+  display: inline-block;
+}
+
+.main section p {
+  color: var(--slate);
+}
+
+/* ---- Project / experience entries ---- */
+.entry {
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+  transition: transform 0.2s ease;
+}
+
+.entry:hover {
+  transform: translateX(4px);
+}
+
+.entry:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.entry h3 {
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
+.entry-org {
+  font-size: 0.85rem;
+  color: var(--steel);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.entry ul {
+  padding-left: 18px;
+  color: var(--slate);
+}
+
+.entry ul li {
+  margin-bottom: 6px;
+}
+
+/* ---- Education timeline ---- */
+.tl-item {
+  margin-bottom: 20px;
+}
+
+.tl-item:last-child {
+  margin-bottom: 0;
+}
+
+.tl-year {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--slate);
+}
+
+.tl-item h3 {
+  font-size: 1rem;
+  margin-top: 2px;
+}
+
+/* ---- Footer ---- */
+footer {
+  text-align: center;
+  padding: 24px;
+  font-size: 0.85rem;
+  color: var(--slate);
+}
+
+/* ---- Scroll-reveal animation ---- */
+/* Sections start hidden/shifted down, then fade + slide in once
+   script.js adds the "in-view" class as they scroll into view. */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: none;
+}
+
+/* Respect users who've asked for less motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ---- Print styles ---- */
+@media print {
+  .topnav {
+    display: none;
+  }
+  body {
+    background: #fff;
+    color: #16232F;
+  }
+}
